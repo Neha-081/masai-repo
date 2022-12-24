@@ -1,11 +1,11 @@
 import React from "react";
 import '../styles/products.css'
 
-const ProductCard = ({item}) => {
+const ProductCard = ({ item }) => {
 
   return (
-<div className="products">
-      <img src={item.thumbnail}/>
+    <div className="products">
+      <img src={item.thumbnail} />
       <h3>{item.title}</h3>
       <h3>{item.description}</h3>
       <h3>Brand - {item.brand}</h3>
