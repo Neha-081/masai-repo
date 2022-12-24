@@ -5,7 +5,7 @@ const Pagination = ({ page, productsData, setLoading, skip, setSkip }) => {
 
   return (
     <div className="pagination">
-      <button className="btn btn-secondary prev" disabled={skip === 1} onClick={() => {
+      <button className={`${skip === 1 ? `disable` : ''}`} disabled={skip === 1} onClick={() => {
         setSkip(skip - 1)
         setLoading(true)
       }}>Prev</button>

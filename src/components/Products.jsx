@@ -13,7 +13,6 @@ const Products = () => {
     const url = `https://dummyjson.com/products?limit=${page}&skip=${skip}`;
     try {
       const { data } = await Axios.get(url);
-      console.log("data-------", data);
       setProductsData(data.products);
       setLoading(false);
       return data;
@@ -24,7 +23,8 @@ const Products = () => {
 
   useEffect(() => {
     getProductsInfo(page);
-  }, [page, skip])
+     // eslint-disable-next-line
+  }, [page, skip]);
 
 
   return (
@@ -35,7 +35,7 @@ const Products = () => {
         ))}
       </div>
       {loading && <div>loading...</div>}
-      <Pagination page={page} productsData={productsData} setLoading={setLoading} skip={skip} setSkip={setSkip} />
+      <Pagination page={page} setPage={setPage} productsData={productsData} setLoading={setLoading} skip={skip} setSkip={setSkip} />
     </div>
   )
 };

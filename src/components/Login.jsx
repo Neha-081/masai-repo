@@ -54,7 +54,7 @@ const Login = () => {
     } else {
       setPasswordError("");
     }
-    setUserName(e.target.value);
+    setPassword(e.target.value);
   };
 
   const handleSignOut = () => {
