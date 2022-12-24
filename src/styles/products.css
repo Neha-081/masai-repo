@@ -1,0 +1,21 @@
+.products-cont {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.products {
+  background-color: aliceblue;
+  height: 350px;
+  width: 330px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.products img {
+  height: 200px;
+  width: 200px;
+}
+
+.products h3 {
+  font-size: 13px;
+}
