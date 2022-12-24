@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Axios from 'axios';
 import ProductCard from "./ProductCard";
 import Pagination from "./Pagination";
-import Navbar from "./Navbar";
 
 const Products = () => {
   const [productsData, setProductsData] = useState([]);
@@ -24,7 +23,7 @@ const Products = () => {
   };
 
   useEffect(() => {
-    getProductsInfo(page)
+    getProductsInfo(page);
   }, [page, skip])
 
 

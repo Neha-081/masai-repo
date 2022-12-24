@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import '../styles/login.css';
 import Axios from 'axios';
-import { useSelector } from "react-redux";
 
 const Login = () => {
 
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [token, setToken] = useState('');
-
-  const { data } = useSelector((store) => store.login);
 
   async function loginUser(payload) {
     const url = 'https://reqres.in/api/login';
@@ -56,7 +53,3 @@ const Login = () => {
 };
 
 export default Login;
-
-
-// eve.holt@reqres.in
-// cityslicka
