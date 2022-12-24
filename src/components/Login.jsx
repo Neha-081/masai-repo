@@ -7,6 +7,8 @@ const Login = () => {
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [token, setToken] = useState('');
+  const [userNameError, setUserNameError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
 
   async function loginUser(payload) {
     const url = 'https://reqres.in/api/login';
@@ -22,17 +24,43 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (username === "" || password === "") {
+      setUserNameError("Enter UserName");
+      setPasswordError("Enter Password");
+    } else {
+      setUserNameError("");
+      setPasswordError("");
+    }
     const response = await loginUser({
       username,
       password
     });
     const { token } = response;
     setToken(token);
-  }
+  };
+
+  const handleUserName = (e) => {
+    if (e.target.value === "") {
+      setUserNameError("Enter UserName")
+    } else {
+      setUserNameError("");
+    }
+    setUserName(e.target.value);
+  };
+
+  const handlePassword = (e) => {
+    if (e.target.value === "") {
+      setPasswordError("Enter Password")
+    } else {
+      setPasswordError("");
+    }
+    setUserName(e.target.value);
+  };
 
   const handleSignOut = () => {
     setToken('');
   };
+
 
   return (<div>
 
@@ -43,8 +71,10 @@ const Login = () => {
       </div> :
       <form className="login" onSubmit={handleSubmit}>
         <h1>Login</h1>
-        <input placeholder="email" name="username" id="username" value={username} onChange={e => setUserName(e.target.value)} />
-        <input placeholder="password" name="password" value={password} onChange={e => setPassword(e.target.value)} />
+        <input placeholder="email" name="username" id="username" value={username} onChange={handleUserName} />
+        <input placeholder="password" name="password" value={password} onChange={handlePassword} />
+        <div style={{color:"red"}}>{userNameError}</div>
+        <div style={{color:"red"}}>{passwordError}</div>
         <button type="submit">Login</button>
       </form>
     }
