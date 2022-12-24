@@ -9,11 +9,12 @@
   width: 330px;
   padding: 10px;
   margin: 10px;
+  margin-top: 80px;
 }
 
 .products img {
   height: 200px;
-  width: 200px;
+  width: 300px;
 }
 
 .products h3 {
